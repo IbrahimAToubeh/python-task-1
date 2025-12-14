@@ -5,6 +5,8 @@ RESOURCE_TYPES = ("Laptop", "Book", "Room")
 class Resource:
     def __init__(self, id, type, status = "available"):
         self.id = id
+        if type not in RESOURCE_TYPES:
+            raise ValueError(f"Invalid resource type: '{type}'. Allowed types are: {RESOURCE_TYPES}") 
         self.type = type
         self.status = status
 

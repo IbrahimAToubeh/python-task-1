@@ -60,7 +60,7 @@ class PremiumStudent(Student):
     def enroll(self, course: Course, mentor: Optional['Mentor'] = None):
         super().enroll(course)
         if mentor:
-             self.log_action("Premium Enrollment", f"Matched with mentor {mentor.name}")
+            self.log_action("Premium Enrollment", f"Matched with mentor {mentor.name}")
 
 class Mentor(Person):
     def approve_request(self, student: Student, resource: Resource) -> bool:

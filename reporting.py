@@ -1,5 +1,6 @@
 from typing import List
 from .people import Student, Mentor
+from .people import PremiumStudent
 
 class Report:
     def __init__(self, students: int, premium: int, approvals: int, catalog_size: int):
@@ -10,7 +11,6 @@ class Report:
 
     @classmethod
     def from_students(cls, students: List[Student], mentors: List[Mentor], catalog_size: int):
-        from .people import PremiumStudent
         total_students = len(students)
         premium_count = sum(1 for s in students if isinstance(s, PremiumStudent))
         approvals = sum(len(s.borrowed_resources) for s in students)

@@ -10,13 +10,13 @@ class ResourceCatalog:
 
     def allocate(self, target: Any, resource_type: str) -> bool:
         if hasattr(target, 'needs_resource') and hasattr(target, 'name'):
-             for res in self._resources:
-                 if res.status == "available" and res.type == resource_type:
-                     res.status = "allocated"
-                     print(f"Allocated {res.id} ({res.type}) to {target.name}")
-                     return True
-             print(f"No {resource_type} available for {target.name}")
-             return False
+            for res in self._resources:
+                if res.status == "available" and res.type == resource_type:
+                    res.status = "allocated"
+                    print(f"Allocated {res.id} ({res.type}) to {target.name}")
+                    return True
+            print(f"No {resource_type} available for {target.name}")
+            return False
         else:
             print("Target does not support resource allocation.")
             return False
